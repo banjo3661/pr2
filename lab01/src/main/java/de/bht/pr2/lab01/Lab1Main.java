@@ -9,6 +9,7 @@ import java.util.List;
 public class Lab1Main {
 
   public static void main(String[] args) {
+    System.out.println("test");
     // Daten fuer Studierenden als Strings
     List<String> data = new ArrayList<String>();
     data.add("Anna Alt,70001,Medieninformatik,312");
