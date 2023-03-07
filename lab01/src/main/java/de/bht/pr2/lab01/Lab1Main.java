@@ -9,12 +9,11 @@ import java.util.List;
 public class Lab1Main {
 
   public static void main(String[] args) {
-    System.out.println("test");
-    System.out.println("test2");
+
 
     // Daten fuer Studierenden als Strings
     List<String> data = new ArrayList<String>();
-    data.add("Anna Alt,70001,Medieninformatik,312");
+    data.add("Anna Alt,700,Medieninformatik,312");
     data.add("Bob Berg,70002,Technische Informatik,312");
     data.add("Carla Castor,70003,Druck- und Medientechnik,312");
     data.add("Daniel Dorf,70004,Screen Based Media,312");
@@ -41,10 +40,12 @@ public class Lab1Main {
     data.add("Yannik Yoga,70025,Druck- und Medientechnik,312");
     data.add("Zoe Zoo,70026,Technische Informatik,312");
 
-    // Create a list of Student-Objects
+
+    //Arrayliste  für Studenten Objekte wird erzeugt
     List<Student> students = new ArrayList<Student>();
 
-    // Parse each line ...
+   //Inhalte der "data" Arraylist werden zu Strings umgewandelt (for each) als Vorlage
+    // Damit Studenten Objekte erzeugt werden könnem, innerhlab der for schleife muss ein Try caTACH kommen damit fehkler hafte stunden überspruneg nwerden können
     for (String datenZeile : data) {
       // ... and try to create a Student object
       Student student = new Student(datenZeile);

@@ -7,6 +7,6 @@ See https://github.com/vaadin/skeleton-starter-flow-spring
 
 Yu first have to run `maven install` for this lession to work. 
 
-![Alt text](install.png)
+maven install
 
 Afterwards, you have run/execute the class `de.bht.pr2.lession08.Application`.
