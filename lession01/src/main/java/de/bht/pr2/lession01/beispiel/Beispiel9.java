@@ -7,9 +7,10 @@ public class Beispiel9 {
 
   // Ungepruefte Ausnahme beim Compiler ignoriert
 
-  public static void dateiUndDivision(int zaehler, String dateiName)
-      throws ArithmeticException, // Ungeprueft /* TODO: Nimm 'ArithmeticException' weg und schau, dass es noch kompiliert.
-      FileNotFoundException { // Geprueft
+  public static void dateiUndDivision(int zaehler, String dateiName) throws ArithmeticException, // Ungeprueft /* TODO: Nimm 'ArithmeticException' weg und schau, dass es noch kompiliert.
+      FileNotFoundException
+
+  { // Geprueft
     int nenner = 0;
 
     /* TODO: Tausche die nächsten zwei Zeilen aus um den Effekt zu sehen, dass eine andere Exception zuerst geworfen wird. */

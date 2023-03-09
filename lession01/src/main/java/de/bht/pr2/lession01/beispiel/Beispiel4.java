@@ -8,8 +8,8 @@ public class Beispiel4 {
     double division = 0d; // Schon Platz reservieren
 
     try {
-      int zaehler = 100;
-      int nenner = 1; // Am Ende erreichen wir Eins
+      int zaehler = 4444;
+      int nenner = 0; // Am Ende erreichen wir Eins
       division = zaehler / nenner;
 
       int[] array = {1, 2, 3, 4, 5};

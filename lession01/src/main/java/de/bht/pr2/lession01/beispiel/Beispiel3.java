@@ -14,7 +14,7 @@ public class Beispiel3 {
       division = zaehler / nenner;
     } catch (ArithmeticException e) {
       System.out.println("!!! Ausnahme:");
-      System.out.println(e);
+      System.out.println(e + "exception wird mit e geprintet");
       division = 0; // Default-Wert zuweisen
     }
 

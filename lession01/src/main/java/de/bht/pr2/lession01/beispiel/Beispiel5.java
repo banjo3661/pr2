@@ -9,7 +9,7 @@ public class Beispiel5 {
 
     try {
       int zaehler = 100;
-      int nenner = 1; // Am Ende erreichen wir Eins
+      int nenner = 0; // Am Ende erreichen wir Eins
       division = zaehler / nenner;
 
       int[] array = {1, 2, 3, 4, 5};

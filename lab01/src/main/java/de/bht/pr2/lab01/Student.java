@@ -47,7 +47,7 @@ public class Student {
     // Ausgabe, wenn die Struktur nicht stimmt.
     catch (Exception e) {
 
-      System.out.println("StudentParseException " + dataRow);
+      System.out.println("StudentParseException "  + e + " " + dataRow);
 
     }
 
@@ -116,8 +116,8 @@ public class Student {
 
     } catch (Exception e){
 
-      int restbetrag = rueckmeldegebuehr-TUITION_FEE;
-      System.out.println("NotPaidTuitionFeeException " + restbetrag);
+      //int restbetrag = rueckmeldegebuehr-TUITION_FEE;
+      System.out.println("NotPaidTuitionFeeException " );
 
 
     }
