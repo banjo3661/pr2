@@ -37,34 +37,92 @@ public class Student {
       registrationNumber = Integer.parseInt(trennung[1]);
       courseOfStudies =  trennung[2];
       rueckmeldegebuehr = Integer.parseInt(trennung[3]);
+
+
+
+
     }
+
+
     // Ausgabe, wenn die Struktur nicht stimmt.
     catch (Exception e) {
 
-      System.out.println("StudentParseException");
+      System.out.println("StudentParseException " + dataRow);
 
     }
 
+    // Prüfe ob die Martikelnummerstimm (mind 5 Ziffern und Int)
+
     try {
+      // dataRow wird bei jedem "," geeteilt
       String[] trennung = dataRow.split(",");
-
-
 
       registrationNumber = Integer.parseInt(trennung[1]);
 
+      //Notwendig damit man den Datentyp von elemenatrenDatentypen überprüfen kann
+      ((Object)registrationNumber).getClass().getSimpleName();
+      boolean datentypcheck = Integer.class.isInstance(registrationNumber);
 
       int length = String.valueOf(registrationNumber).length();
-      if (length>=5){
+
+      if (length>=5 && datentypcheck){
 
       }
+
+
     }
 
     catch (Exception e) {
 
-      System.out.println("am");
+      System.out.println("RegistrationNumberException " + registrationNumber);
+
+    }
+    // Prüfe ob der Studiengang stimmt
+
+    try {
+
+      String[] trennung = dataRow.split(",");
+
+      courseOfStudies =  trennung[2];
+
+      if(courseOfStudies.equals("Technische Informatik") || courseOfStudies.equals("Druck- und Medientechnik") || courseOfStudies.equals("Screen Based Media") || courseOfStudies.equals("Medieninformatik")) {
+
+
+      }
+
+    }
+
+    catch (Exception e) {
+
+      System.out.println("RegistrationNumberException " + courseOfStudies);
+
+
+    }
+
+    //Prüfe ob Rueckmeldegebuehr stimmt
+
+    try {
+
+      String[] trennung = dataRow.split(",");
+      // lokale rueckmeldegebuher, weil global = static final (einmal zuweisbar und  immerdeselbe wert=312) ist
+      int rueckmeldegebuehr = 0;
+      rueckmeldegebuehr = Integer.parseInt(trennung[3]);
+
+      if (rueckmeldegebuehr==TUITION_FEE){
+
+      }
+
+
+
+    } catch (Exception e){
+
+      int restbetrag = rueckmeldegebuehr-TUITION_FEE;
+      System.out.println("NotPaidTuitionFeeException " + restbetrag);
+
 
     }
 
 
   }
 }
+
