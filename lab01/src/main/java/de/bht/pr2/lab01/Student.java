@@ -38,6 +38,8 @@ public class Student {
       courseOfStudies =  trennung[2];
       rueckmeldegebuehr = Integer.parseInt(trennung[3]);
 
+      StudentParseException formatCheck = new StudentParseException("Fehlerhafte Zeile: " + dataRow);
+      throw formatCheck;
 
 
 
@@ -45,9 +47,9 @@ public class Student {
 
 
     // Ausgabe, wenn die Struktur nicht stimmt.
-    catch (Exception e) {
+    catch (formatCheck e) {
 
-      System.out.println("StudentParseException "  + e + " " + dataRow);
+      System.out.println(formatCheck);
 
     }
 
