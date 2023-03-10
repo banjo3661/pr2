@@ -46,6 +46,7 @@ public class Lab1Main {
 
    //Inhalte der "data" Arraylist werden zu Strings umgewandelt (for each) als Vorlage
     // Damit Studenten Objekte erzeugt werden könnem, innerhlab der for schleife muss ein Try caTACH kommen damit fehkler hafte stunden überspruneg nwerden können
+    // wenn diese und diese Eception eintrifft, dann nicht keinee stundets.add
     for (String datenZeile : data) {
       // ... and try to create a Student object
       Student student = new Student(datenZeile);
