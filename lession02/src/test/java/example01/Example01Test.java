@@ -19,6 +19,8 @@ class Example01Test {
 
     car.drive("Hamburg", 300);                           // Act
 
+
+    // (assertEquals erwarteter Quellcodeergebniss, aktuelles Code ergebis), wird zueinander getestet
     assertEquals("Hamburg", car.getPosition());           // Assert
     assertEquals(10300, car.getKmStatus());                // Assert
   }

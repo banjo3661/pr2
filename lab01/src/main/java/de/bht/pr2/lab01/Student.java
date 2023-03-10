@@ -39,17 +39,16 @@ public class Student {
       rueckmeldegebuehr = Integer.parseInt(trennung[3]);
 
       StudentParseException formatCheck = new StudentParseException("Fehlerhafte Zeile: " + dataRow);
-      throw formatCheck;
-
+       throw formatCheck;
 
 
     }
 
 
     // Ausgabe, wenn die Struktur nicht stimmt.
-    catch (formatCheck e) {
+    catch (StudentParseException e) {
 
-      System.out.println(formatCheck);
+      System.out.println(e);
 
     }
 
