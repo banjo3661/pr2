@@ -20,110 +20,67 @@ public class Student {
    *
    * @param dataRow a comma-separated row describing a student object
    */
-  public Student(String dataRow) {
+  public Student(String dataRow) throws StudentParseException, RegistrationNumberException, NotPaidTuitionFeeException, WrongCourseOfStudiesException {
     // pRINTEN "data"  Arryalist mit den ganzen Inofs im String Format
-    System.out.println(dataRow);
+    // System.out.println(dataRow);
+    String[] trennung = dataRow.split(",");
 
 
-    // Pruefe ob die Sturktur stimmt (name, reg.nummer, Studiengang, Rueckmeldegeb�hr)
-    try {
-      // dataRow wird bei jedem "," geeteilt
-      String[] trennung = dataRow.split(",");
-
-      // lokale rueckmeldegebuher, weil global = static final (einmal zuweisbar und  immerdeselbe wert=312) ist
-      int rueckmeldegebuehr = 0;
-
-      name = trennung[0];
-      registrationNumber = Integer.parseInt(trennung[1]);
-      courseOfStudies =  trennung[2];
-      rueckmeldegebuehr = Integer.parseInt(trennung[3]);
-
-      StudentParseException formatCheck = new StudentParseException("Fehlerhafte Zeile: " + dataRow);
-       throw formatCheck;
-
-
+    // Strukturcheck
+    if (trennung.length != 4) {
+       throw new StudentParseException("Not enough parts in data: " + dataRow + ".");
     }
 
 
-    // Ausgabe, wenn die Struktur nicht stimmt.
-    catch (StudentParseException e) {
+    name = trennung[0];
 
-      System.out.println(e);
-
-    }
+    // Matrikelüberprüfung
+    int length = 0;
 
     // Prüfe ob die Martikelnummerstimm (mind 5 Ziffern und Int)
-
     try {
-      // dataRow wird bei jedem "," geeteilt
-      String[] trennung = dataRow.split(",");
-
-      registrationNumber = Integer.parseInt(trennung[1]);
-
-      //Notwendig damit man den Datentyp von elemenatrenDatentypen überprüfen kann
-      ((Object)registrationNumber).getClass().getSimpleName();
-      boolean datentypcheck = Integer.class.isInstance(registrationNumber);
-
-      int length = String.valueOf(registrationNumber).length();
-
-      if (length>=5 && datentypcheck){
-
-      }
-
-
+      registrationNumber = Integer.parseInt(trennung[1]);         // (Bedingung 1) Umwandlung / Ziel: Check ob String ein Integer ...
+      length = String.valueOf(registrationNumber).length();       //Ziffer Berechnung der Martikelnummer
+    } catch (Exception e) {
+      throw new RegistrationNumberException("Falsche Martikelnummer: " + trennung[1] + ".");
     }
 
-    catch (Exception e) {
-
-      System.out.println("RegistrationNumberException " + registrationNumber);
-
-    }
-    // Prüfe ob der Studiengang stimmt
-
-    try {
-
-      String[] trennung = dataRow.split(",");
-
-      courseOfStudies =  trennung[2];
-
-      if(courseOfStudies.equals("Technische Informatik") || courseOfStudies.equals("Druck- und Medientechnik") || courseOfStudies.equals("Screen Based Media") || courseOfStudies.equals("Medieninformatik")) {
-
-
-      }
-
+    if (length < 5){                                              // (Bedingung 2) Anzahl der Zifferncheck
+      throw new RegistrationNumberException("Falsche Martikelnummer: " + trennung[1]);
     }
 
-    catch (Exception e) {
 
-      System.out.println("RegistrationNumberException " + courseOfStudies);
-
-
+    // Kursüberprüfung
+    courseOfStudies = trennung[2];
+    if(     !courseOfStudies.equals("Technische Informatik") &&
+            !courseOfStudies.equals("Druck- und Medientechnik") &&
+            !courseOfStudies.equals("Screen Based Media") &&
+            !courseOfStudies.equals("Medieninformatik")) {
+      throw new WrongCourseOfStudiesException(" RegistrationNumberException Falscher Kurs" + courseOfStudies);
     }
+
+
+    int rueckmeldegebuehr = 0;
 
     //Prüfe ob Rueckmeldegebuehr stimmt
-
     try {
-
-      String[] trennung = dataRow.split(",");
-      // lokale rueckmeldegebuher, weil global = static final (einmal zuweisbar und  immerdeselbe wert=312) ist
-      int rueckmeldegebuehr = 0;
       rueckmeldegebuehr = Integer.parseInt(trennung[3]);
-
-      if (rueckmeldegebuehr==TUITION_FEE){
-
-      }
-
-
-
     } catch (Exception e){
-
-      //int restbetrag = rueckmeldegebuehr-TUITION_FEE;
-      System.out.println("NotPaidTuitionFeeException " );
-
-
+      throw new RegistrationNumberException("Falsche Rückmeldung");
     }
 
+    if (rueckmeldegebuehr != TUITION_FEE){
+      rueckmeldegebuehr = TUITION_FEE - rueckmeldegebuehr;
+      throw new NotPaidTuitionFeeException("Fehlende Summe" + rueckmeldegebuehr);
+    }
+  }
 
+  public String toString() {
+    return "Student [" +
+            "name='" + name +
+            ", registrationNumber=" + registrationNumber +
+            ", courseOfStudies='" + courseOfStudies +
+            ']';
   }
 }
 

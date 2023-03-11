@@ -17,8 +17,9 @@ class Example05Test {
   void testPosistionAndKmStatus() {
     Car auto = new Car("Audi", "gelb", "Berlin", 10000);
     auto.drive("Hamburg", 300);
+
     assertAll("Alle Zeilen werden ausgefuehrt",
-        () -> assertEquals("Hamburg Nord", auto.getPosition()),
+        () -> assertEquals("Hambur", auto.getPosition()),
         () -> assertEquals(10300, auto.getKmStatus())
     );
   }

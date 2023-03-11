@@ -7,6 +7,7 @@ public class Student {
   private int registrationNumber = 0;
   private String courseOfStudies = "";
 
+
   public Student(String data)
       throws StudentParseException, RegistrationNumberException, WrongCourseOfStudiesException, NotPaidTuitionFeeException {
 
@@ -47,6 +48,8 @@ public class Student {
       throw new NotPaidTuitionFeeException(
           "Student still has to pay " + toBePaid + " € tuition fee.");
     }
+
+
   }
 
 

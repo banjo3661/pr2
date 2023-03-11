@@ -13,7 +13,7 @@ public class Lab1Main {
 
     // Daten fuer Studierenden als Strings
     List<String> data = new ArrayList<String>();
-    data.add("Anna Alt,700,Medieninformatik,312");
+    data.add("Anna Alt,700,Medieninformatik,312");// Falsche Matrikelnummer
     data.add("Bob Berg,70002,Technische Informatik,312");
     data.add("Carla Castor,70003,Druck- und Medientechnik,312");
     data.add("Daniel Dorf,70004,Screen Based Media,312");
@@ -49,8 +49,14 @@ public class Lab1Main {
     // wenn diese und diese Eception eintrifft, dann nicht keinee stundets.add
     for (String datenZeile : data) {
       // ... and try to create a Student object
-      Student student = new Student(datenZeile);
-      students.add(student);
+      try{
+        Student student = new Student(datenZeile);
+        students.add(student);
+        System.out.println("Gespeichert");
+      }catch (Exception e){
+        System.out.println("Nicht Gespeichert: " + e);
+      }
+
     }
 
     // Print all students which could be parsed

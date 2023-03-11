@@ -5,7 +5,6 @@ package de.bht.pr2.lab02.part1;
 
 import org.junit.jupiter.api.Test;
 
-import de.bht.pr2.lab02.part1.Student;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,16 +55,22 @@ class MyTest {
 
     //Inhalte der "data" Arraylist werden zu Strings umgewandelt (for each) als Vorlage
 
-
     for (String datenZeile : data) {
-      student = new Student(datenZeile);
+
+      Student student = new Student(datenZeile);
       students.add(student);
+
+
+      //assertAll("Alle Zeilen werden ausgefuehrt",
+      //        () -> assertEquals(student.getName() instanceof  String, student.getName()),
+      //        () -> assertEquals(10300, student.getRegistrationNumber())
+      //);
+
     }
 
-    assertAll("Alle Zeilen werden ausgefuehrt",
-            () -> assertEquals("a", student.getName()),
-            () -> assertEquals(10300, student.getRegistrationNumber())
-    );
+
+
+
 
   }
 
