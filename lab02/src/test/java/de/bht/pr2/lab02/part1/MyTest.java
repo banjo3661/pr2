@@ -73,8 +73,6 @@ class MyTest {
 
       String[] erwartet = {"Medieninformatik", "Technische Informatik", "Screen Based Media"};
 
-
-
       assertAll("Alle Zeilen werden ausgefuehrt",
               () -> assertEquals(erwartet , student.getCourseOfStudies()),
               () -> assertEquals(700, student.getRegistrationNumber())
