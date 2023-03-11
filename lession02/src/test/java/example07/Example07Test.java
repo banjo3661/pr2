@@ -12,13 +12,13 @@ class Example07Test {
   void testAssertThrows() {
     int[] array = {1, 2, 3, 4, 5};
     assertThrows(ArrayIndexOutOfBoundsException.class,
-        () -> array[999] = 12345);
+        () -> array[343] = 1);
   }
 
   @Test
   void testAssertThrowsSuperclass() {
     int[] array = {1, 2, 3, 4, 5};
     assertThrows(IndexOutOfBoundsException.class,
-        () -> array[999] = 12345);
+        () -> array[565] = 2);
   }
 }
