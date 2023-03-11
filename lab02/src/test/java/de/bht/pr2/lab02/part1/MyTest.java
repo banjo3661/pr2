@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class MyTest {
 
@@ -50,23 +49,44 @@ class MyTest {
     data.add("Zoe Zoo,70026,Technische Informatik,312");
 
 
-    //Arrayliste  für Studenten Objekte wird erzeugt
     List<Student> students = new ArrayList<Student>();
 
     //Inhalte der "data" Arraylist werden zu Strings umgewandelt (for each) als Vorlage
-
+    // Damit Studenten Objekte erzeugt werden könnem, innerhlab der for schleife muss ein Try caTACH kommen damit fehkler hafte stunden überspruneg nwerden können
+    // wenn diese und diese Eception eintrifft, dann nicht keinee stundets.add
     for (String datenZeile : data) {
-
-      Student student = new Student(datenZeile);
-      students.add(student);
-
-
-      //assertAll("Alle Zeilen werden ausgefuehrt",
-      //        () -> assertEquals(student.getName() instanceof  String, student.getName()),
-      //        () -> assertEquals(10300, student.getRegistrationNumber())
-      //);
+      // ... and try to create a Student object
+      try{
+        Student student = new Student(datenZeile);
+        students.add(student);
+        System.out.println("Gespeichert");
+      }catch (Exception e){
+        System.out.println("Nicht Gespeichert: " + e);
+      }
 
     }
+
+    // Print all students which could be parsed
+    System.out.println("List of Student objects:");
+    for (Student student : students) {
+      System.out.println(student);
+
+      String[] erwartet = {"Medieninformatik", "Technische Informatik", "Screen Based Media"};
+
+
+
+      assertAll("Alle Zeilen werden ausgefuehrt",
+              () -> assertEquals(erwartet , student.getCourseOfStudies()),
+              () -> assertEquals(700, student.getRegistrationNumber())
+      );
+
+    }
+
+
+
+
+
+
 
 
 

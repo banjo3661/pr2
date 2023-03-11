@@ -19,8 +19,8 @@ class Example05Test {
     auto.drive("Hamburg", 300);
 
     assertAll("Alle Zeilen werden ausgefuehrt",
-        () -> assertEquals("Hambur", auto.getPosition()),
-        () -> assertEquals(10300, auto.getKmStatus())
+        () -> assertEquals("Hamburg", auto.getPosition()),
+        () -> assertEquals(103003, auto.getKmStatus())
     );
   }
 }

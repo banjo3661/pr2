@@ -66,3 +66,21 @@ public class Lab1Main {
     }
   }
 }
+
+
+
+/*
+
+    void testPosistionAndKmStatus() {
+    Car auto = new Car("Audi", "gelb", "Berlin", 10000);
+    Car auto1 = new Car("BMW", "rot", "Duisburg", 10000);
+    auto.drive("Hamburg", 300);
+    auto2.drive("Kiel", 300);
+
+    assertAll("Alle Zeilen werden ausgefuehrt",
+    () -> assertEquals("ggg", auto.getPosition()),
+    () -> assertEquals(10300, auto.getKmStatus())
+    );
+    }
+
+*/
