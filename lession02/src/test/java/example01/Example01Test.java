@@ -9,7 +9,6 @@ import de.bht.pr2.lession02.Car;
 import org.junit.jupiter.api.Test;
 
 class Example01Test {
-
   // Test a program with JUnit
 
   // @Test This is an Annotation

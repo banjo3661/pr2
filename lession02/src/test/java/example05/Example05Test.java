@@ -21,6 +21,7 @@ class Example05Test {
     assertAll("Alle Zeilen werden ausgefuehrt",
         () -> assertEquals("Hamburg", auto.getPosition()),
         () -> assertEquals(103003, auto.getKmStatus())
+
     );
   }
 }
