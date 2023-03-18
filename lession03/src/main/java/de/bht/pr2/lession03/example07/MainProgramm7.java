@@ -3,6 +3,8 @@ package de.bht.pr2.lession03.example07;
 public class MainProgramm7 {
 
   // Autoboxing und Unboxing - Zuweisungen
+  // einzigste Ausnahme
+  // Integer m = null, int k = m; -> fehler, weil int/doueble usw kann nie null sein
 
   public static void main(String[] args) {
     // Autoboxing

@@ -16,6 +16,8 @@ public class MainProgramm2 {
     liste.add("a");
     System.out.println(liste);
 
+
+    //Listen zusammenfügen
     System.out.println("------ addAll(liste2) ------");
     List<String> liste2 = new ArrayList<String>();
     liste2.add("b");
@@ -27,6 +29,7 @@ public class MainProgramm2 {
     System.out.println("liste2: " + liste2);
     System.out.println("liste:  " + liste);
 
+    //Listen cutten
     System.out.println("------ subList() ------");
     List<String> subListe = liste.subList(2, 4);
     System.out.println("Sub-Liste: " + subListe);
@@ -39,6 +42,7 @@ public class MainProgramm2 {
     System.out.println("------ set(2, \"x\") ------");
     liste.set(2, "x");
     System.out.println(liste);
+
 
     System.out.println("------ remove(3) ------");
     liste.remove(3);
