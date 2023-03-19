@@ -45,11 +45,11 @@ public class Schiff {
 
   @Override
   public String toString() {
-    return "Schiff [" +
-        "name='" + name +
-        ", laenge=" + laenge +
-        ", breite=" + breite +
-        ']';
+    return "Schiff{" +
+            "name='" + name + '\'' +
+            ", laenge=" + laenge +
+            ", breite=" + breite +
+            '}';
   }
 }
 
